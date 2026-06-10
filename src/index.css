@@ -68,6 +68,14 @@ body {
   background-color: #020617;
   color: white;
   font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: rgba(249, 115, 22, 0.35);
+  color: white;
 }
 
 ::-webkit-scrollbar {

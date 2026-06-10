@@ -104,6 +104,23 @@ Durante el desarrollo se integraron tecnologías como Tailwind CSS para el estil
 
 ---
 
+## 6. Refinamiento de la Interfaz de Usuario
+
+### Actividades Realizadas
+
+- Aplicación de mejoras visuales sobre la Landing Page desarrollada.
+- Optimización de espaciados y distribución de elementos.
+- Incorporación de efectos hover y transiciones suaves.
+- Mejora de la jerarquía visual de títulos, botones y secciones.
+- Ajustes de responsividad para diferentes tamaños de pantalla.
+- Incremento de la consistencia visual utilizando Tailwind CSS y componentes de shadcn/ui.
+
+### Evidencia
+
+![alt text](<docs/Captura de pantalla 2026-06-10 175101.png>)
+
+---
+
 # Estructura del Proyecto
 
 ```text

@@ -259,12 +259,13 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
 
 function SectionTitle({ tag, title, subtitle }: { tag: string; title: string; subtitle: string }) {
   return (
-    <div className="text-center mb-14">
-      <Badge variant="outline" className="mb-4 text-orange-400 border-orange-500/50 uppercase tracking-widest text-xs">
+    <div className="text-center mb-16">
+      <Badge variant="outline" className="mb-5 text-orange-400 border-orange-500/40 uppercase tracking-widest text-xs px-3 py-1 shadow-sm shadow-orange-500/10">
         {tag}
       </Badge>
-      <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">{title}</h2>
-      <p className="text-white/60 max-w-xl mx-auto text-lg">{subtitle}</p>
+      <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight tracking-tight">{title}</h2>
+      <div className="w-12 h-0.5 bg-gradient-to-r from-orange-500 to-yellow-400 mx-auto mb-5 rounded-full" />
+      <p className="text-white/55 max-w-xl mx-auto text-lg leading-relaxed">{subtitle}</p>
     </div>
   )
 }
@@ -290,7 +291,7 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-yellow-400 flex items-center justify-center shadow-lg shadow-orange-500/30">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-yellow-400 flex items-center justify-center shadow-lg shadow-orange-500/40 ring-1 ring-orange-300/20">
             <Zap className="w-4 h-4 text-black" />
           </div>
           <span className="font-black text-xl tracking-tight">
@@ -396,7 +397,7 @@ function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <Badge variant="power" className="mb-6 text-sm px-4 py-1.5 uppercase tracking-widest">
+          <Badge variant="power" className="mb-6 text-sm px-4 py-1.5 uppercase tracking-widest shadow-lg shadow-orange-500/20">
             ✦ El universo más épico del anime
           </Badge>
         </motion.div>
@@ -407,8 +408,8 @@ function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-6xl md:text-8xl lg:text-9xl font-black leading-none mb-6"
         >
-          <span className="block text-white drop-shadow-2xl">DRAGON</span>
-          <span className="block bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-500 bg-clip-text text-transparent drop-shadow-2xl">
+          <span className="block text-white drop-shadow-2xl tracking-tight">DRAGON</span>
+          <span className="block bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-500 bg-clip-text text-transparent drop-shadow-2xl tracking-tight">
             BALL
           </span>
         </motion.h1>
@@ -460,9 +461,9 @@ function Hero() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-1.5"
+            className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-1.5 shadow-lg shadow-white/5"
           >
-            <div className="w-1.5 h-2.5 rounded-full bg-orange-400" />
+            <div className="w-1.5 h-2.5 rounded-full bg-gradient-to-b from-orange-400 to-orange-600" />
           </motion.div>
         </motion.div>
       </motion.div>
@@ -491,7 +492,7 @@ function Transformations() {
                 transition={{ type: 'spring', stiffness: 300 }}
                 className="group h-full"
               >
-                <Card className={`h-full overflow-hidden border-white/5 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:${t.glow}`}>
+                <Card className="h-full overflow-hidden border-white/5 hover:border-white/20 transition-all duration-300 hover:shadow-2xl">
                   <div className="relative h-52 overflow-hidden">
                     <div className={`absolute inset-0 bg-gradient-to-br ${t.color} opacity-20 group-hover:opacity-30 transition-opacity`} />
                     <img
@@ -581,7 +582,7 @@ function Warriors() {
                     onClick={() => setActive(i)}
                     className="cursor-pointer group"
                   >
-                    <Card className="overflow-hidden border-white/5 hover:border-orange-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10">
+                    <Card className="overflow-hidden border-white/5 hover:border-orange-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/10">
                       <div className="relative h-60 overflow-hidden">
                         <div className={`absolute inset-0 bg-gradient-to-br ${w.color} opacity-20 group-hover:opacity-30 transition-opacity`} />
                         <img
@@ -724,7 +725,7 @@ function Timeline() {
                         whileHover={{ scale: 1.02 }}
                         transition={{ type: 'spring', stiffness: 300 }}
                       >
-                        <Card className="border-white/5 hover:border-white/15 transition-colors">
+                        <Card className="border-white/5 hover:border-white/20 hover:shadow-lg transition-all duration-300">
                           <CardContent className="p-5">
                             <div className="flex items-center gap-3 mb-3">
                               <div className={`w-8 h-8 rounded-lg ${item.color} flex items-center justify-center shrink-0`}>
@@ -746,10 +747,8 @@ function Timeline() {
                     </div>
 
                     {/* Center dot */}
-                    <div className="hidden md:flex shrink-0 w-10 h-10 rounded-full border-4 border-gray-950 items-center justify-center relative z-10"
-                      style={{ background: `linear-gradient(135deg, ${item.color.replace('bg-', '')}, transparent)` }}
-                    >
-                      <div className={`w-4 h-4 rounded-full ${item.color}`} />
+                    <div className="hidden md:flex shrink-0 w-10 h-10 rounded-full border-4 border-gray-950 bg-gray-900 items-center justify-center relative z-10 shadow-lg">
+                      <div className={`w-5 h-5 rounded-full ${item.color} shadow-md`} />
                     </div>
 
                     {/* Spacer */}
@@ -773,15 +772,15 @@ function StatCard({ stat, index }: { stat: typeof STATS[0]; index: number }) {
 
   return (
     <FadeIn delay={index * 0.08}>
-      <motion.div ref={ref} whileHover={{ y: -4 }} transition={{ type: 'spring', stiffness: 300 }}>
+      <motion.div ref={ref} whileHover={{ y: -5 }} transition={{ type: 'spring', stiffness: 300 }}>
         <Card className="text-center p-6 border-white/5 hover:border-white/15 transition-all hover:shadow-xl group">
-          <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-            <Icon className={`w-6 h-6 ${stat.color}`} />
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:border-white/20 transition-all duration-300">
+            <Icon className={`w-7 h-7 ${stat.color}`} />
           </div>
-          <div className={`text-4xl font-black mb-1 ${stat.color}`}>
+          <div className={`text-4xl font-black mb-1.5 ${stat.color}`}>
             {count}{stat.suffix}
           </div>
-          <p className="text-white/50 text-sm font-medium">{stat.label}</p>
+          <p className="text-white/50 text-sm font-medium tracking-wide">{stat.label}</p>
         </Card>
       </motion.div>
     </FadeIn>
@@ -827,7 +826,7 @@ function Gallery() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className={`relative overflow-hidden rounded-2xl group cursor-pointer ${img.span}`}
+                className={`relative overflow-hidden rounded-2xl group cursor-pointer ring-1 ring-white/0 hover:ring-white/20 transition-all duration-300 ${img.span}`}
               >
                 <img
                   src={img.src}
@@ -866,8 +865,8 @@ function FaqSection() {
         <FadeIn delay={0.1}>
           <Accordion type="single" collapsible className="space-y-2">
             {FAQ.map((item, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="bg-white/5 rounded-xl px-4 border border-white/5">
-                <AccordionTrigger className="text-left font-semibold text-white/90 hover:text-orange-400">
+              <AccordionItem key={i} value={`item-${i}`} className="bg-white/5 hover:bg-white/[0.07] rounded-xl px-4 border border-white/5 hover:border-orange-500/20 transition-all duration-200">
+                <AccordionTrigger className="text-left font-semibold text-white/90 hover:text-orange-400 transition-colors">
                   {item.q}
                 </AccordionTrigger>
                 <AccordionContent>{item.a}</AccordionContent>
@@ -968,9 +967,9 @@ function Footer() {
                     href={s.href}
                     aria-label={s.label}
                     whileHover={{ scale: 1.15, y: -2 }}
-                    className="w-9 h-9 rounded-lg bg-white/5 hover:bg-orange-500/20 border border-white/10 hover:border-orange-500/30 flex items-center justify-center transition-colors"
+                    className="group w-9 h-9 rounded-lg bg-white/5 hover:bg-orange-500/20 border border-white/10 hover:border-orange-500/30 flex items-center justify-center transition-all duration-200"
                   >
-                    <Icon className="w-4 h-4 text-white/60 hover:text-orange-400" />
+                    <Icon className="w-4 h-4 text-white/50 group-hover:text-orange-400 transition-colors duration-200" />
                   </motion.a>
                 )
               })}
@@ -983,7 +982,7 @@ function Footer() {
               <ul className="space-y-2.5">
                 {items.map((item) => (
                   <li key={item}>
-                    <a href="#" className="text-white/50 hover:text-orange-400 text-sm transition-colors">
+                    <a href="#" className="text-white/45 hover:text-orange-400 text-sm transition-colors duration-200 hover:translate-x-0.5 inline-block">
                       {item}
                     </a>
                   </li>
@@ -1029,7 +1028,7 @@ function ScrollToTop() {
           whileHover={{ scale: 1.1 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Volver arriba"
-          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-orange-500 hover:bg-orange-600 text-black flex items-center justify-center shadow-2xl shadow-orange-500/30 transition-colors"
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 hover:from-orange-300 hover:to-orange-500 text-black flex items-center justify-center shadow-2xl shadow-orange-500/40 ring-2 ring-orange-500/20 hover:ring-orange-500/40 transition-all duration-300"
         >
           <ArrowUp className="w-5 h-5" />
         </motion.button>
